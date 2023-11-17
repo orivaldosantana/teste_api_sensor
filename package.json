@@ -1,0 +1,23 @@
+{
+  "name": "teste_api_sensor",
+  "version": "1.0.0",
+  "description": "Teste inicial de como obter dados de sensores através de uma API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orivaldosantana/teste_api_sensor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/orivaldosantana/teste_api_sensor/issues"
+  },
+  "homepage": "https://github.com/orivaldosantana/teste_api_sensor#readme",
+  "devDependencies": {
+    "prisma": "^5.6.0"
+  }
+}
