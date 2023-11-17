@@ -13,17 +13,21 @@ app.get('/', (req, res) => {
   res.send('Express app - Teste API Sensores!')
 })
 
-// Rota para obter acessos entre duas datas
+// Rota para obter acessos entre duas datas, incluindo hora
 app.get('/acessos', async (req, res) => {
   try {
-    const { sensorId, dataInicio, dataFim } = req.query
+    const { sensorId, dataInicio, horaInicio, dataFim, horaFim } = req.query
+
+    // Combine data e hora para criar objetos Date
+    const startDateTime = new Date(`${dataInicio}T${horaInicio}`)
+    const endDateTime = new Date(`${dataFim}T${horaFim}`)
 
     const acessos = await prisma.reading.findMany({
       where: {
         sensorId: parseInt(sensorId),
         createdAt: {
-          gte: new Date(dataInicio),
-          lte: new Date(dataFim)
+          gte: startDateTime,
+          lte: endDateTime
         }
       }
     })

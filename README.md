@@ -25,30 +25,39 @@ npx prisma migrate diff --from-empty --to-schema-datamodel prisma/schema.prisma 
 ```
 
 Marcado a migração como aplicada
+
 ```
 npx prisma migrate resolve --applied 0_init
 ```
 
-## Instalação do Cliente Prisma 
-Instalação do pacote 
+## Instalação do Cliente Prisma
+
+Instalação do pacote
+
 ```
 npm install @prisma/client
 ```
-Lê o esquema Prisma e gera a biblioteca para o Cliente Prisma. 
+
+Lê o esquema Prisma e gera a biblioteca para o Cliente Prisma.
+
 ```
 npx prisma generate
 ```
-## Instalação de outros pacotes 
+
+## Instalação de outros pacotes
+
 Para API
+
 ```
 npm install express --save
 ```
 
-## Utilização de rota 
+## Utilização de rota
 
-Utilizando o GET: 
+Testando no navegador:
+
 ```
-http://localhost:3000/acessos?sensorId=1&dataInicio=2023-11-15&dataFim=2023-11-17
+http://localhost:3000/acessos?sensorId=1&dataInicio=2023-11-17&dataFim=2023-11-17&horaInicio=00:00:00&horaFim=10:00:00
 ```
 
 ## Referência
