@@ -24,6 +24,33 @@ Criando o arquivo de migração
 npx prisma migrate diff --from-empty --to-schema-datamodel prisma/schema.prisma --script > prisma/migrations/0_init/migration.sql
 ```
 
+Marcado a migração como aplicada
+```
+npx prisma migrate resolve --applied 0_init
+```
+
+## Instalação do Cliente Prisma 
+Instalação do pacote 
+```
+npm install @prisma/client
+```
+Lê o esquema Prisma e gera a biblioteca para o Cliente Prisma. 
+```
+npx prisma generate
+```
+## Instalação de outros pacotes 
+Para API
+```
+npm install express --save
+```
+
+## Utilização de rota 
+
+Utilizando o GET: 
+```
+http://localhost:3000/acessos?sensorId=1&dataInicio=2023-11-15&dataFim=2023-11-17
+```
+
 ## Referência
 
 - [Teste com MQTT e Banco de Dados com NodeJS](https://github.com/orivaldosantana/teste_mqtt_nodejs_bd)

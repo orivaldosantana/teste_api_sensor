@@ -8,15 +8,20 @@ const PORT = 3000
 
 app.use(express.json())
 
+// Rota raiz
+app.get('/', (req, res) => {
+  res.send('Express app - Teste API Sensores!')
+})
+
 // Rota para obter acessos entre duas datas
 app.get('/acessos', async (req, res) => {
   try {
-    const { userId, dataInicio, dataFim } = req.query
+    const { sensorId, dataInicio, dataFim } = req.query
 
-    const acessos = await prisma.acesso.findMany({
+    const acessos = await prisma.reading.findMany({
       where: {
-        userId: parseInt(userId),
-        data: {
+        sensorId: parseInt(sensorId),
+        createdAt: {
           gte: new Date(dataInicio),
           lte: new Date(dataFim)
         }
