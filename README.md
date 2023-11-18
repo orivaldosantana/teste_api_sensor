@@ -62,5 +62,7 @@ http://localhost:3000/acessos?sensorId=1&dataInicio=2023-11-17&dataFim=2023-11-1
 
 ## Referência
 
+- [Vídeo com a explicação geral deste projeto](https://youtu.be/6SIyYjv1eyo)
+- [Add Prisma to existing project - Relational databases](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases-node-postgresql)
 - [Teste com MQTT e Banco de Dados com NodeJS](https://github.com/orivaldosantana/teste_mqtt_nodejs_bd)
 - [Teste com Prisma NodeJS](https://github.com/orivaldosantana/teste_prisma_nodejs)
