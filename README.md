@@ -52,6 +52,10 @@ Para API
 npm install express --save
 ```
 
+```
+npm install cors
+```
+
 ## Utilização de rota
 
 Testando no navegador:

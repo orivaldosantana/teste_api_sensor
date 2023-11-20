@@ -4,9 +4,14 @@ const express = require('express')
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 const app = express()
-const PORT = 3000
+const cors = require('cors')
+
+const PORT = 3002
 
 app.use(express.json())
+
+// Configurar o middleware CORS
+app.use(cors())
 
 // Rota raiz
 app.get('/', (req, res) => {
@@ -21,6 +26,8 @@ app.get('/acessos', async (req, res) => {
     // Combine data e hora para criar objetos Date
     const startDateTime = new Date(`${dataInicio}T${horaInicio}`)
     const endDateTime = new Date(`${dataFim}T${horaFim}`)
+
+    console.log(`${dataInicio}T${horaInicio} - ${dataFim}T${horaFim}`)
 
     const acessos = await prisma.reading.findMany({
       where: {
