@@ -56,6 +56,13 @@ npm install express --save
 npm install cors
 ```
 
+
+Para funções de estatística
+
+```
+npm install simple-statistics
+```
+
 ## Utilização de rota
 
 Testando no navegador:
