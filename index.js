@@ -8,23 +8,39 @@ const cors = require('cors')
 
 const PORT = 3002
 
+/* Obtem os dados vindos do banco de dados e organiza de modo que cada
+   hora do dia tenha sua respectiva leitura. O banco de dados pode conter 
+   várias leituras em um intervalo de uma hora. Este código junta todas 
+   leituras que ocorrerm em uma determinda hora, calcula a mediana e no final 
+   associa cada hora com sua respectiva leitura. 
+*/
 function filterSensorData(rawData) {
   const filteredData = []
   const aggregatedData = {}
   const filteredAggregatedData = []
+  // passa por cada registro vindo do banco de dados
   for (const e of rawData) {
+    // criar uma variável hora para seu respectivo registro do bd
     const tmpDate = new Date(e.createdAt)
+    // define uma string simplificada apenas com dia, mês e hora 
+    // o método 'getMonth' retorna valores entre 0 e 11
     const fd = {
-      time: `${tmpDate.getDay()}/${tmpDate.getMonth()} ${tmpDate.getHours()}h`,
+      time: `${tmpDate.getUTCDate()}/${
+        tmpDate.getMonth() + 1
+      } ${tmpDate.getHours()}h`,
       value: e.value
     }
+    // adiciona as leituras, formatadas como data simples, em um vetor
     filteredData.push(fd)
+    // num discionário, criar um vetor para cada string de data simplificada
     if (aggregatedData[fd.time] === undefined) {
       aggregatedData[fd.time] = []
     }
+    // adiciona cada leitura em seu respectivo vetor
     aggregatedData[fd.time].push(fd.value)
   }
-
+  // Adiciona num vetor a mediana da leitura do sensor e
+  // sua respectiva data simplificada
   for (const p in aggregatedData) {
     filteredAggregatedData.push({
       time: p,
